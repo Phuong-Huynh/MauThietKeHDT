@@ -89,9 +89,27 @@ namespace MyGraphics
                         break;
 
                     case ShapeTypes.ELLIPSE:
+                        Ellipse ellipse = new Ellipse();
+                        ellipse.Info = new ShapeInfo
+                        {
+                            p1 = p1,
+                            width = Math.Abs(p1.X - p2.X),
+                            height = Math.Abs(p1.Y - p2.Y),
+                            color = Color.Black,
+                        };
+                        ellipse.draw(graphics);
                         break;
 
                     case ShapeTypes.LOZEN:
+                        Lozen lozen = new Lozen();
+                        lozen.Info = new ShapeInfo
+                        {
+                            p1 = p1,
+                            width = Math.Abs(p1.X - p2.X),
+                            height = Math.Abs(p1.Y - p2.Y),
+                            color = Color.Black,
+                        };
+                        lozen.draw(graphics);
                         break;
                     default:
                         break;

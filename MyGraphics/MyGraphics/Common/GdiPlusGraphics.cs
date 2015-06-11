@@ -47,7 +47,7 @@ namespace MyGraphics.Common
 
         public void DrawEllipse(Point p1, int width, int heiht)
         {
-            throw new NotImplementedException();
+            lib.DrawEllipse(pen, p1.X, p1.Y, width, heiht);
         }
 
         #endregion
