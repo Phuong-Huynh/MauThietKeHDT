@@ -6,17 +6,16 @@ using System.Threading.Tasks;
 
 namespace MyGraphics.Diagrams.ActivityDiagram
 {
-    class FcInput : Block
+    class FcStart : Block
     {
         public override Block clone(DiagramFactory f)
         {
-            
-             return f.createInput(this.info);
+            throw new NotImplementedException();
         }
 
         public override void draw(Common.CommonGraphics g)
         {
-            // 
+            throw new NotImplementedException();
         }
     }
 }

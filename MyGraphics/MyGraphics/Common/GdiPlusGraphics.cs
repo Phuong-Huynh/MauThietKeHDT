@@ -5,10 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace MyGraphics.Common
 {
     public class GdiPlusGraphics : CommonGraphics
     {
+       
         protected Graphics lib;
 
         protected Pen pen;
@@ -42,12 +44,8 @@ namespace MyGraphics.Common
             lib.DrawRectangle(pen, p1.X, p1.Y, width, height);
         }
 
-        public void DrawCircle(Point p1, int radius)
-        {
-            throw new NotImplementedException();
-        }
 
-        public void DrawLozen(Point p1, int width, int heiht)
+        public void DrawEllipse(Point p1, int width, int heiht)
         {
             throw new NotImplementedException();
         }
