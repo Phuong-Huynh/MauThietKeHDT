@@ -1,5 +1,6 @@
 ﻿using MyGraphics.Common;
 using MyGraphics.Decorator;
+using MyGraphics.Diagrams.ActivityDiagram;
 using MyGraphics.Shapes;
 using System;
 using System.Collections.Generic;
@@ -16,23 +17,107 @@ namespace MyGraphics
 {
     public partial class Form1 : Form
     {
-        Point p1, p2;
+        System.Drawing.Point p1, p2;
         Boolean isMouseDown = false;
-        Graphics gGDI;
-        Color c;
+        System.Drawing.Graphics gContext, gContext2;
+        System.Drawing.Color c;
         Pen pen, eraser;
 
-        ShapeTypes ShapeType;
+        ShapeTypes shapeType;
+        GraphicsTypes graphicsType;
 
         CommonGraphics graphics;
+        GdiPlusGraphics gdiGraphics;
+        CairoGraphics cairogGraphics;
         public Form1()
         {
             InitializeComponent();
-            gGDI = pnlPaint.CreateGraphics();
-            pen = new Pen(Color.Black);
+           
+            
+        }
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            base.OnPaint(e);
+            gContext = pnlPaint.CreateGraphics();
+            gContext2 = pnlPaint.CreateGraphics();
+            pen = new Pen(System.Drawing.Color.Black);
             //eraser = new Pen(pnlPaint.BackColor);
-            graphics = new GdiPlusGraphics(gGDI, pen);
-            ShapeType = ShapeTypes.LINE;
+
+            gdiGraphics = new GdiPlusGraphics(gContext, pen);
+            cairogGraphics = new CairoGraphics(pnlPaint.CreateGraphics());
+
+            shapeType = ShapeTypes.LINE;
+            graphicsType = GraphicsTypes.GDI;
+            graphics = gdiGraphics;
+
+            /////------TEST ------ActivityDiagram----------/////
+            //acstart
+            base.OnPaint(e);
+            AcStart acstart = new AcStart();
+            acstart.Info = new ShapeInfo
+            {
+                p1 = new Point(50, 50),
+                width = 70,
+                height = 70,
+
+            };
+            acstart.draw(graphics);
+            //acinput (dau vao);
+            AcInput acinput = new AcInput();
+            acinput.Info = new ShapeInfo
+            {
+                p1 = new Point(150, 50),
+                width = 100,
+                height = 70,
+            };
+            acinput.draw(graphics);
+            //acprocess (xu li)
+            AcProcess acprocess = new AcProcess();
+            acprocess.Info = new ShapeInfo
+            {
+                p1 = new Point(300, 50),
+                width = 100,
+                height = 70,
+            };
+            acprocess.draw(graphics);
+            //acOutput (dau ra)
+            AcOutput acoutput = new AcOutput();
+            acoutput.Info = new ShapeInfo
+            {
+                p1 = new Point(450, 50),
+                width = 100,
+                height = 70,
+            };
+            acoutput.draw(graphics);
+            //acTransittion
+            AcTransition actransition = new AcTransition();
+            actransition.Info = new ShapeInfo
+            {
+                p1 = new Point(50, 150),
+                p2 = new Point(100, 200),
+            };
+            actransition.draw(graphics);
+
+            //acCondition (dieu kien)
+            AcCondition accondition = new AcCondition();
+            accondition.Info = new ShapeInfo
+            {
+                p1 = new Point(300, 150),
+                width = 100,
+                height = 70,
+            };
+            accondition.draw(graphics);
+            //AcEnd (ket thuc)
+            AcEnd acend = new AcEnd();
+            acend.Info = new ShapeInfo
+            {
+                p1 = new Point(450, 150),
+                width = 60,
+                height = 60,
+            };
+            acend.draw(graphics);
+            
         }
 
 
@@ -41,7 +126,7 @@ namespace MyGraphics
             if (e.Button == MouseButtons.Left)
             {
                 isMouseDown = true;
-                p1 = new Point(e.X, e.Y);
+                p1 = new System.Drawing.Point(e.X, e.Y);
             }
 
 
@@ -63,8 +148,8 @@ namespace MyGraphics
         {
             if (isMouseDown && e.Button == MouseButtons.Left)
             {
-                p2 = new Point(e.X, e.Y);
-                switch (ShapeType)
+                p2 = new System.Drawing.Point(e.X, e.Y);
+                switch (shapeType)
                 {
                     case ShapeTypes.LINE:
                         Line line = new Line();
@@ -72,7 +157,7 @@ namespace MyGraphics
                         {
                             p1 = p1,
                             p2 = p2,
-                            color = Color.Black,
+                            color = System.Drawing.Color.Black,
                         };
                         line.draw(graphics);
                         break;
@@ -88,7 +173,7 @@ namespace MyGraphics
                         };
                         //rect.draw(graphics);
 
-                        EffectedShape effShape = new HighlightShape();
+                        EffectedShape effShape = new ShadowShape();
                         effShape.shape = rect;
                         effShape.draw(graphics);
                         break;
@@ -100,7 +185,7 @@ namespace MyGraphics
                             p1 = p1,
                             width = Math.Abs(p1.X - p2.X),
                             height = Math.Abs(p1.Y - p2.Y),
-                            color = Color.Black,
+                            color = System.Drawing.Color.Black,
                         };
                         ellipse.draw(graphics);
                         break;
@@ -112,7 +197,7 @@ namespace MyGraphics
                             p1 = p1,
                             width = Math.Abs(p1.X - p2.X),
                             height = Math.Abs(p1.Y - p2.Y),
-                            color = Color.Black,
+                            color = System.Drawing.Color.Black,
                         };
                         lozen.draw(graphics);
                         break;
@@ -127,27 +212,35 @@ namespace MyGraphics
 
         private void rdbLine_CheckedChanged(object sender, EventArgs e)
         {
-            ShapeType = ShapeTypes.LINE;
+            shapeType = ShapeTypes.LINE;
         }
 
         private void rdbRectangle_CheckedChanged(object sender, EventArgs e)
         {
-            ShapeType = ShapeTypes.RECT;
+            shapeType = ShapeTypes.RECT;
         }
 
         private void rdbEllipse_CheckedChanged(object sender, EventArgs e)
         {
-            ShapeType = ShapeTypes.ELLIPSE;
+            shapeType = ShapeTypes.ELLIPSE;
         }
 
         private void rdbLozenge_CheckedChanged(object sender, EventArgs e)
         {
-            ShapeType = ShapeTypes.LOZEN;
+            shapeType = ShapeTypes.LOZEN;
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void rdbGDI_CheckedChanged(object sender, EventArgs e)
         {
-
+            graphicsType = GraphicsTypes.GDI;
+            graphics = gdiGraphics;
         }
+
+        private void rdbCairo_CheckedChanged(object sender, EventArgs e)
+        {
+            graphicsType = GraphicsTypes.CAIRO;
+            graphics = cairogGraphics;
+        }
+        
     }
 }

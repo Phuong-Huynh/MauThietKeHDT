@@ -10,12 +10,12 @@ namespace MyGraphics.Diagrams.ActivityDiagram
     {
         public override Block clone(DiagramFactory f)
         {
-            throw new NotImplementedException();
+            return f.createTransition(this.info);
         }
 
         public override void draw(Common.CommonGraphics g)
         {
-            throw new NotImplementedException();
+            g.DrawLine(info.p1, info.p2);
         }
     }
 }
