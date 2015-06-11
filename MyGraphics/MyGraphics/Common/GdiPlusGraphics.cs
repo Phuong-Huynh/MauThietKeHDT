@@ -14,6 +14,11 @@ namespace MyGraphics.Common
         protected Graphics lib;
 
         protected Pen pen;
+        protected SolidBrush brush = new SolidBrush(Color.Black);
+
+        public void setFillColor(Color color) {
+            brush.Color = color;
+        }
 
         public Pen Pen
         {
@@ -50,6 +55,18 @@ namespace MyGraphics.Common
             lib.DrawEllipse(pen, p1.X, p1.Y, width, heiht);
         }
 
+        public void FillRect(Point p1, int width, int height) 
+        {
+            lib.FillRectangle(brush, p1.X, p1.Y, width, height);
+        }
+
         #endregion
+
+
+        public void setHighlight(int size, Color color)
+        {
+            pen.Width = size;
+            pen.Color = color;
+        }
     }
 }

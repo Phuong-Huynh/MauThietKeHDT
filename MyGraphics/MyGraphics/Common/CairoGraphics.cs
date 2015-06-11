@@ -39,5 +39,22 @@ namespace MyGraphics.Common
         }
 
         #endregion
+
+
+        public void FillRect(System.Drawing.Point p1, int width, int height)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void setFillColor(System.Drawing.Color color)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public void setHighlight(int size, System.Drawing.Color clolor)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

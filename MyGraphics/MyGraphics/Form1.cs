@@ -1,4 +1,5 @@
 ﻿using MyGraphics.Common;
+using MyGraphics.Decorator;
 using MyGraphics.Shapes;
 using System;
 using System.Collections.Generic;
@@ -83,9 +84,13 @@ namespace MyGraphics
                             p1 = p1,
                             width = Math.Abs(p1.X - p2.X),
                             height = Math.Abs(p1.Y - p2.Y),
-                            color = Color.Black,
+                            color = Color.Yellow,
                         };
-                        rect.draw(graphics);
+                        //rect.draw(graphics);
+
+                        EffectedShape effShape = new HighlightShape();
+                        effShape.shape = rect;
+                        effShape.draw(graphics);
                         break;
 
                     case ShapeTypes.ELLIPSE:
@@ -138,6 +143,11 @@ namespace MyGraphics
         private void rdbLozenge_CheckedChanged(object sender, EventArgs e)
         {
             ShapeType = ShapeTypes.LOZEN;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

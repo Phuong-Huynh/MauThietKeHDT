@@ -12,6 +12,7 @@ namespace MyGraphics.Shapes
         public Point p1, p2;
         public int width, height;
         public Color color;
+        //public Color background;
         
     }
 }

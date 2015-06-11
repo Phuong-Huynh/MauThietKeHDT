@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 
 namespace MyGraphics.Decorator
 {
@@ -16,7 +17,8 @@ namespace MyGraphics.Decorator
 
         public override void draw(CommonGraphics g)
         {
-            
+            format(g, shape);
+            shape.draw(g);
         }
     }
 }

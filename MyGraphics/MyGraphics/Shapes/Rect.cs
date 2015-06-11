@@ -12,6 +12,7 @@ namespace MyGraphics.Shapes
         public override void draw(CommonGraphics g)
         {
             g.DrawRect(Info.p1, Info.width, Info.height);
+            g.FillRect(Info.p1, Info.width, Info.height);
            
         }
     }

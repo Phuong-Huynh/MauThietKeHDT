@@ -9,9 +9,16 @@ namespace MyGraphics.Common
 {
     public interface CommonGraphics
     {
+        //Draw
         void DrawLine(Point p1, Point p2);
-         void DrawRect(Point p1, int width, int height);
-         
-         void DrawEllipse(Point p1, int width, int heiht);
+        void DrawRect(Point p1, int width, int height);
+        void DrawEllipse(Point p1, int width, int heiht);
+
+        //Fill object
+        void FillRect(Point p1, int width, int height);
+        void setFillColor(Color color);
+
+        //Set size brush
+        void setHighlight(int size, Color clolor);
     }
 }
