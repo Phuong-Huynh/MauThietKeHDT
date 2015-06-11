@@ -39,5 +39,16 @@ namespace MyGraphics.Common
         }
 
         #endregion
+
+
+        public void FillEllipse(System.Drawing.Point p1, int width, int heiht)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DrawArc(System.Drawing.Point p1, int width, int height, float startAngle, float sweepAngle)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

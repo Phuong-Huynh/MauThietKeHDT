@@ -13,5 +13,7 @@ namespace MyGraphics.Common
          void DrawRect(Point p1, int width, int height);
          
          void DrawEllipse(Point p1, int width, int heiht);
+         void FillEllipse(Point p1, int width, int heiht);
+         void DrawArc(Point p1, int width, int height, float startAngle, float sweepAngle);
     }
 }

@@ -15,7 +15,7 @@ namespace MyGraphics.Diagrams.ActivityDiagram
 
         public override void draw(Common.CommonGraphics g)
         {
-            throw new NotImplementedException();
+            g.FillEllipse(info.p1, info.width, info.height);
         }
     }
 }

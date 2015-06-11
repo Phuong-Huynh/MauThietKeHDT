@@ -35,13 +35,13 @@
             this.rdbRectangle = new System.Windows.Forms.RadioButton();
             this.rdbLine = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnSave = new System.Windows.Forms.Button();
             this.rdbPNG = new System.Windows.Forms.RadioButton();
             this.rdbBitMap = new System.Windows.Forms.RadioButton();
             this.rdbJpeg = new System.Windows.Forms.RadioButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.rdbCairo = new System.Windows.Forms.RadioButton();
             this.rdbGDI = new System.Windows.Forms.RadioButton();
-            this.btnSave = new System.Windows.Forms.Button();
             this.btnNewDiagram = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -133,6 +133,15 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Format";
             // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(17, 120);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(64, 27);
+            this.btnSave.TabIndex = 3;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            // 
             // rdbPNG
             // 
             this.rdbPNG.AutoSize = true;
@@ -198,15 +207,7 @@
             this.rdbGDI.TabStop = true;
             this.rdbGDI.Text = "GDI+";
             this.rdbGDI.UseVisualStyleBackColor = true;
-            // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(17, 120);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(64, 27);
-            this.btnSave.TabIndex = 3;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
+            this.rdbGDI.CheckedChanged += new System.EventHandler(this.rdbGDI_CheckedChanged);
             // 
             // btnNewDiagram
             // 

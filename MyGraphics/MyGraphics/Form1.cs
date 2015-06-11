@@ -1,4 +1,5 @@
 ﻿using MyGraphics.Common;
+using MyGraphics.Diagrams.ActivityDiagram;
 using MyGraphics.Shapes;
 using System;
 using System.Collections.Generic;
@@ -34,6 +35,77 @@ namespace MyGraphics
             ShapeType = ShapeTypes.LINE;
         }
 
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            /////------TEST ------ActivityDiagram----------/////
+            //acstart
+            base.OnPaint(e);
+            AcStart acstart = new AcStart();
+            acstart.Info = new ShapeInfo
+            {
+                p1 = new Point(50, 50),
+                width = 70,
+                height = 70,
+
+            };
+            acstart.draw(graphics);
+            //acinput (dau vao);
+            AcInput acinput = new AcInput();
+            acinput.Info = new ShapeInfo
+            {
+                p1 = new Point(150, 50),
+                width = 100,
+                height = 70,
+            };
+            acinput.draw(graphics);
+            //acprocess (xu li)
+            AcProcess acprocess = new AcProcess();
+            acprocess.Info = new ShapeInfo
+            {
+                p1 = new Point(300, 50),
+                width = 100,
+                height = 70,
+            };
+            acprocess.draw(graphics);
+            //acOutput (dau ra)
+            AcOutput acoutput = new AcOutput();
+            acoutput.Info = new ShapeInfo
+            {
+                p1 = new Point(450, 50),
+                width = 100,
+                height = 70,
+            };
+            acoutput.draw(graphics);
+            //acTransittion
+            AcTransition actransition = new AcTransition();
+            actransition.Info = new ShapeInfo
+            {
+                p1 = new Point(50,150),
+                p2 = new Point(100,200),
+            };
+            actransition.draw(graphics);
+
+            //acCondition (dieu kien)
+            AcCondition accondition = new AcCondition();
+            accondition.Info = new ShapeInfo
+            {
+                p1 = new Point(300, 150),
+                width = 100,
+                height = 70,
+            };
+            accondition.draw(graphics);
+            //AcEnd (ket thuc)
+            AcEnd acend = new AcEnd();
+            acend.Info = new ShapeInfo
+            {
+                p1 = new Point(450, 150),
+                width = 60,
+                height = 60,
+            };
+            acend.draw(graphics);
+
+
+        }
 
         private void pnlPaint_MouseDown(object sender, MouseEventArgs e)
         {
@@ -138,6 +210,11 @@ namespace MyGraphics
         private void rdbLozenge_CheckedChanged(object sender, EventArgs e)
         {
             ShapeType = ShapeTypes.LOZEN;
+        }
+
+        private void rdbGDI_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

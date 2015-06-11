@@ -1,5 +1,7 @@
-﻿using System;
+﻿using MyGraphics.Shapes;
+using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,7 +17,10 @@ namespace MyGraphics.Diagrams.ActivityDiagram
 
         public override void draw(Common.CommonGraphics g)
         {
-            throw new NotImplementedException();
+            Lozen lozen = new Lozen();
+            lozen.Info = this.Info;
+            lozen.draw(g);
+            
         }
     }
 }
