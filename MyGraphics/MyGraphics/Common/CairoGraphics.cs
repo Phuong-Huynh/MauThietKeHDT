@@ -23,12 +23,14 @@ namespace MyGraphics.Common
 
         public void DrawLine(System.Drawing.Point p1, System.Drawing.Point p2)
         {
-            throw new NotImplementedException();
+            lib.MoveTo((double)p1.X, (double)p1.Y);
+            lib.LineTo((double)p1.X, (double)p1.Y);
+            lib.Stroke();
         }
 
         public void DrawRect(System.Drawing.Point p1, int width, int height)
         {
-            throw new NotImplementedException();
+            lib.Rectangle((double)p1.X, (double)p1.Y, (double)width, (double)height);
         }
 
         public void DrawEllipse(System.Drawing.Point p1, int width, int heiht)
