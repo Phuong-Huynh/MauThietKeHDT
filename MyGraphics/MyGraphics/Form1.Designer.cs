@@ -196,6 +196,7 @@
             this.rdbCairo.TabStop = true;
             this.rdbCairo.Text = "Cairo";
             this.rdbCairo.UseVisualStyleBackColor = true;
+            this.rdbCairo.CheckedChanged += new System.EventHandler(this.rdbCairo_CheckedChanged);
             // 
             // rdbGDI
             // 
@@ -222,12 +223,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(860, 480);
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(860, 484);
             this.Controls.Add(this.btnNewDiagram);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pnlPaint);
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "My Graphics";
             this.groupBox1.ResumeLayout(false);

@@ -42,6 +42,7 @@ namespace MyGraphics.Common
         public void DrawRect(Point p1, int width, int height)
         {
             lib.DrawRectangle(pen, p1.X, p1.Y, width, height);
+            lib.Save();
         }
 
 
@@ -51,6 +52,8 @@ namespace MyGraphics.Common
         }
 
         #endregion
+
+        
 
 
         public void FillEllipse(Point p1, int width, int heiht)

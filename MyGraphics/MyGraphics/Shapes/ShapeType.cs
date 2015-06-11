@@ -13,4 +13,10 @@ namespace MyGraphics.Shapes
         ELLIPSE,
         LOZEN,
     };
+
+    public enum GraphicsTypes
+    {
+        GDI, 
+        CAIRO,
+    };
 }

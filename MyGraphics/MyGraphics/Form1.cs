@@ -16,27 +16,40 @@ namespace MyGraphics
 {
     public partial class Form1 : Form
     {
-        Point p1, p2;
+        System.Drawing.Point p1, p2;
         Boolean isMouseDown = false;
-        Graphics gGDI;
-        Color c;
+        System.Drawing.Graphics gContext, gContext2;
+        System.Drawing.Color c;
         Pen pen, eraser;
 
-        ShapeTypes ShapeType;
+        ShapeTypes shapeType;
+        GraphicsTypes graphicsType;
 
         CommonGraphics graphics;
+        GdiPlusGraphics gdiGraphics;
+        CairoGraphics cairogGraphics;
         public Form1()
         {
             InitializeComponent();
-            gGDI = pnlPaint.CreateGraphics();
-            pen = new Pen(Color.Black);
-            //eraser = new Pen(pnlPaint.BackColor);
-            graphics = new GdiPlusGraphics(gGDI, pen);
-            ShapeType = ShapeTypes.LINE;
+           
+            
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
+            base.OnPaint(e);
+            gContext = pnlPaint.CreateGraphics();
+            gContext2 = pnlPaint.CreateGraphics();
+            pen = new Pen(System.Drawing.Color.Black);
+            //eraser = new Pen(pnlPaint.BackColor);
+
+            gdiGraphics = new GdiPlusGraphics(gContext, pen);
+            cairogGraphics = new CairoGraphics(pnlPaint.CreateGraphics());
+
+            shapeType = ShapeTypes.LINE;
+            graphicsType = GraphicsTypes.GDI;
+            graphics = gdiGraphics;
+
             /////------TEST ------ActivityDiagram----------/////
             //acstart
             base.OnPaint(e);
@@ -80,8 +93,8 @@ namespace MyGraphics
             AcTransition actransition = new AcTransition();
             actransition.Info = new ShapeInfo
             {
-                p1 = new Point(50,150),
-                p2 = new Point(100,200),
+                p1 = new Point(50, 150),
+                p2 = new Point(100, 200),
             };
             actransition.draw(graphics);
 
@@ -103,16 +116,16 @@ namespace MyGraphics
                 height = 60,
             };
             acend.draw(graphics);
-
-
+            
         }
+
 
         private void pnlPaint_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
                 isMouseDown = true;
-                p1 = new Point(e.X, e.Y);
+                p1 = new System.Drawing.Point(e.X, e.Y);
             }
 
 
@@ -134,8 +147,8 @@ namespace MyGraphics
         {
             if (isMouseDown && e.Button == MouseButtons.Left)
             {
-                p2 = new Point(e.X, e.Y);
-                switch (ShapeType)
+                p2 = new System.Drawing.Point(e.X, e.Y);
+                switch (shapeType)
                 {
                     case ShapeTypes.LINE:
                         Line line = new Line();
@@ -143,7 +156,7 @@ namespace MyGraphics
                         {
                             p1 = p1,
                             p2 = p2,
-                            color = Color.Black,
+                            color = System.Drawing.Color.Black,
                         };
                         line.draw(graphics);
                         break;
@@ -155,7 +168,7 @@ namespace MyGraphics
                             p1 = p1,
                             width = Math.Abs(p1.X - p2.X),
                             height = Math.Abs(p1.Y - p2.Y),
-                            color = Color.Black,
+                            color = System.Drawing.Color.Black,
                         };
                         rect.draw(graphics);
                         break;
@@ -167,7 +180,7 @@ namespace MyGraphics
                             p1 = p1,
                             width = Math.Abs(p1.X - p2.X),
                             height = Math.Abs(p1.Y - p2.Y),
-                            color = Color.Black,
+                            color = System.Drawing.Color.Black,
                         };
                         ellipse.draw(graphics);
                         break;
@@ -179,7 +192,7 @@ namespace MyGraphics
                             p1 = p1,
                             width = Math.Abs(p1.X - p2.X),
                             height = Math.Abs(p1.Y - p2.Y),
-                            color = Color.Black,
+                            color = System.Drawing.Color.Black,
                         };
                         lozen.draw(graphics);
                         break;
@@ -194,27 +207,35 @@ namespace MyGraphics
 
         private void rdbLine_CheckedChanged(object sender, EventArgs e)
         {
-            ShapeType = ShapeTypes.LINE;
+            shapeType = ShapeTypes.LINE;
         }
 
         private void rdbRectangle_CheckedChanged(object sender, EventArgs e)
         {
-            ShapeType = ShapeTypes.RECT;
+            shapeType = ShapeTypes.RECT;
         }
 
         private void rdbEllipse_CheckedChanged(object sender, EventArgs e)
         {
-            ShapeType = ShapeTypes.ELLIPSE;
+            shapeType = ShapeTypes.ELLIPSE;
         }
 
         private void rdbLozenge_CheckedChanged(object sender, EventArgs e)
         {
-            ShapeType = ShapeTypes.LOZEN;
+            shapeType = ShapeTypes.LOZEN;
         }
 
         private void rdbGDI_CheckedChanged(object sender, EventArgs e)
         {
-
+            graphicsType = GraphicsTypes.GDI;
+            graphics = gdiGraphics;
         }
+
+        private void rdbCairo_CheckedChanged(object sender, EventArgs e)
+        {
+            graphicsType = GraphicsTypes.CAIRO;
+            graphics = cairogGraphics;
+        }
+        
     }
 }

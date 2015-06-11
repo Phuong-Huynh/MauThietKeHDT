@@ -1,17 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Cairo;
+using System.Windows.Forms;
 
 namespace MyGraphics.Common
 {
     public class CairoGraphics : CommonGraphics
     {
-        Context lib;
-        Surface s;
+        protected Context lib;
+        protected Surface s;
+        
 
         public CairoGraphics(System.Drawing.Graphics g)
         {
@@ -24,13 +25,14 @@ namespace MyGraphics.Common
         public void DrawLine(System.Drawing.Point p1, System.Drawing.Point p2)
         {
             lib.MoveTo((double)p1.X, (double)p1.Y);
-            lib.LineTo((double)p1.X, (double)p1.Y);
+            lib.LineTo((double)p2.X, (double)p2.Y);
             lib.Stroke();
         }
 
         public void DrawRect(System.Drawing.Point p1, int width, int height)
         {
             lib.Rectangle((double)p1.X, (double)p1.Y, (double)width, (double)height);
+            lib.Stroke();
         }
 
         public void DrawEllipse(System.Drawing.Point p1, int width, int heiht)
@@ -49,6 +51,6 @@ namespace MyGraphics.Common
         public void DrawArc(System.Drawing.Point p1, int width, int height, float startAngle, float sweepAngle)
         {
             throw new NotImplementedException();
-        }
+}
     }
 }
