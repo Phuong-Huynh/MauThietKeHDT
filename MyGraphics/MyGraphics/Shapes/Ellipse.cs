@@ -12,7 +12,7 @@ namespace MyGraphics.Shapes
         public override void draw(CommonGraphics g)
         {
             g.DrawEllipse(info.p1, info.width, info.height);
-            
+            g.FillEllipse(info.p1, info.width, info.height);
         }
     }
 }

@@ -54,7 +54,6 @@ namespace MyGraphics.Common
             throw new NotImplementedException();
         }
 
-
         public void setHighlight(int size, System.Drawing.Color clolor)
         {
             throw new NotImplementedException();

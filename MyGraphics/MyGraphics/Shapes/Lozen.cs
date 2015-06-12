@@ -19,10 +19,10 @@ namespace MyGraphics.Shapes
             Point P4 = new Point(info.p1.X + info.width, info.p1.Y + info.height / 2);
 
             //se 4 duong thang
-            //g.DrawLine(P1, P2);
-            //g.DrawLine(P3, P2);
-            //g.DrawLine(P3, P4);
-            //g.DrawLine(P1, P4);
+            g.DrawLine(P1, P2);
+            g.DrawLine(P3, P2);
+            g.DrawLine(P3, P4);
+            g.DrawLine(P1, P4);
         }
     }
 }

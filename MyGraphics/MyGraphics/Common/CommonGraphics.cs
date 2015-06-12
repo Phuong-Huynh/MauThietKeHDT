@@ -22,7 +22,7 @@ namespace MyGraphics.Common
 
         //Set size brush
         void setHighlight(int size, Color clolor);
-         void FillEllipse(Point p1, int width, int heiht);
-         void DrawArc(Point p1, int width, int height, float startAngle, float sweepAngle);
+        void FillEllipse(Point p1, int width, int heiht);
+        void DrawArc(Point p1, int width, int height, float startAngle, float sweepAngle);
     }
 }
