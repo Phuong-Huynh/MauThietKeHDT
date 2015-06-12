@@ -71,7 +71,9 @@ namespace MyGraphics.Common
         }
         public void DrawString(string str, Font font, Brush brush, System.Drawing.Point point)
         {
-            throw new NotImplementedException();
+            
+            
+            
         }
     }
 }

@@ -18,7 +18,7 @@ namespace MyGraphics.Diagrams.ActivityDiagram
         {
             g.DrawEllipse(new Point(Info.p1.X, Info.p1.Y), Info.width, Info.height); // ve ellip
             SolidBrush color = new SolidBrush(Color.Black);
-            Font f = new Font("Arial", 20);
+            Font f = new Font("Arial", Info.height/4);
             g.DrawString("End", f, color, new Point(Info.p1.X + Info.height / 4, Info.p1.Y + Info.height / 4));
         }
     }

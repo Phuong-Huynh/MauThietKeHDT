@@ -146,7 +146,7 @@ namespace MyGraphics
             FcCondition fccon = new FcCondition();
             fccon.Info = new ShapeInfo
             {
-                p1 = new Point(300, 250),
+                p1 = new Point(250, 250),
                 width = 80,
                 height = 60,
             };
@@ -174,12 +174,23 @@ namespace MyGraphics
             FcTransition fctran = new FcTransition();
             fctran.Info = new ShapeInfo
             {
-                //p1 = new Point(180, 370),
-                //p2 = new Point(250, 370),
-                p1 = new Point(180, 300),
-                p2 = new Point(180, 370),
+                p1 = new Point(180, 370),
+                p2 = new Point(250, 370),
+
+                
             };
             fctran.draw(graphics);
+
+            //FcTran Đứng
+            FcTransition fctran1 = new FcTransition();
+            fctran1.Info = new ShapeInfo
+            {
+                p1 = new Point(170, 330),
+                p2 = new Point(170, 400),
+
+
+            };
+            fctran1.draw(graphics);
             // FcEnd
             FcEnd fcend = new FcEnd();
             fcend.Info = new ShapeInfo
