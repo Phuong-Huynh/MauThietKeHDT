@@ -53,7 +53,6 @@ namespace MyGraphics.Common
             throw new NotImplementedException();
         }
 
-
         public void setHighlight(int size, System.Drawing.Color clolor)
         {
             throw new NotImplementedException();
@@ -68,6 +67,6 @@ namespace MyGraphics.Common
         public void DrawArc(System.Drawing.Point p1, int width, int height, float startAngle, float sweepAngle)
         {
             throw new NotImplementedException();
-}
+        }
     }
 }

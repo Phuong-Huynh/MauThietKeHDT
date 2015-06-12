@@ -75,8 +75,7 @@ namespace MyGraphics.Common
 
         public void FillEllipse(Point p1, int width, int heiht)
         {
-            SolidBrush sb = new SolidBrush(Color.Black);
-            lib.FillEllipse(sb, p1.X, p1.Y, width, heiht);
+            lib.FillEllipse(brush, p1.X, p1.Y, width, heiht);
         }
 
         public void DrawArc(Point p1, int width, int height, float startAngle, float sweepAngle)

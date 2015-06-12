@@ -171,11 +171,7 @@ namespace MyGraphics
                             height = Math.Abs(p1.Y - p2.Y),
                             color = Color.Yellow,
                         };
-                        //rect.draw(graphics);
-
-                        EffectedShape effShape = new ShadowShape();
-                        effShape.shape = rect;
-                        effShape.draw(graphics);
+                        rect.draw(graphics);
                         break;
 
                     case ShapeTypes.ELLIPSE:
@@ -185,9 +181,12 @@ namespace MyGraphics
                             p1 = p1,
                             width = Math.Abs(p1.X - p2.X),
                             height = Math.Abs(p1.Y - p2.Y),
-                            color = System.Drawing.Color.Black,
+                            color = System.Drawing.Color.White,
                         };
-                        ellipse.draw(graphics);
+                        //ellipse.draw(graphics);
+                        EffectedShape effShapeelipse = new HighlightShape();
+                        effShapeelipse.shape = ellipse;
+                        effShapeelipse.draw(graphics);
                         break;
 
                     case ShapeTypes.LOZEN:
