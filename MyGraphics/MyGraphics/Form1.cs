@@ -117,6 +117,37 @@ namespace MyGraphics
                 height = 60,
             };
             acend.draw(graphics);
+
+
+            //////////////* Flow Chart *///////////
+            // FcInput
+            FcInput fcinput = new FcInput();
+            fcinput.Info = new ShapeInfo
+            {
+                p1 = new Point(50,300),
+                height = 50,
+                width = 100,
+            };
+            fcinput.draw(graphics);
+            // FcCondition 
+            FcCondition fccon = new FcCondition();
+            fccon.Info = new ShapeInfo
+            {
+                p1 = new Point(300, 300),
+                width = 100,
+                height = 70,
+            };
+            fccon.draw(graphics);
+            // FcProcess
+            FcProcess fcpro = new FcProcess();
+            fcpro.Info = new ShapeInfo
+            {
+                p1 = new Point(350, 300),
+                width = 100,
+                height = 50,
+            };
+            fcpro.draw(graphics);
+            // FcEnd
             
         }
 

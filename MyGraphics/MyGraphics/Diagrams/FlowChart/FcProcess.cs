@@ -15,7 +15,7 @@ namespace MyGraphics.Diagrams.ActivityDiagram
 
         public override void draw(Common.CommonGraphics g)
         {
-            throw new NotImplementedException();
+            g.DrawRect(Info.p1, Info.width, Info.height);
         }
     }
 }
