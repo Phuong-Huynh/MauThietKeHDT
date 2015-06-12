@@ -14,7 +14,7 @@ namespace MyGraphics.Common
         void DrawRect(Point p1, int width, int height);
        
         void DrawEllipse(Point p1, int width, int heiht);
-       // void DrawString(string str, Font font, Brush brush, Point point);
+       void DrawString(string str, Font font, Brush brush, Point point);
 
         //Fill object
         void FillRect(Point p1, int width, int height);

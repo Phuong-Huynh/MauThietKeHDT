@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Cairo;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace MyGraphics.Common
 {
@@ -68,6 +69,10 @@ namespace MyGraphics.Common
         public void DrawArc(System.Drawing.Point p1, int width, int height, float startAngle, float sweepAngle)
         {
             throw new NotImplementedException();
-}
+        }
+        public void DrawString(string str, Font font, Brush brush, System.Drawing.Point point)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

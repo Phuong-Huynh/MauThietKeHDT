@@ -168,7 +168,24 @@ namespace MyGraphics
                 height = 60,
             };
             fcout.draw(graphics);
+            //FcTran
+            FcTransition fctran = new FcTransition();
+            fctran.Info = new ShapeInfo
+            {
+                p1 = new Point(180, 370),
+                p2 = new Point(250, 370),
+            };
+            fctran.draw(graphics);
             // FcEnd
+            FcEnd fcend = new FcEnd();
+            fcend.Info = new ShapeInfo
+            {
+                p1 = new Point(300, 350),
+                height = 60,
+                width = 80,
+            };
+            fcend.draw(graphics);
+
             
         }
 

@@ -17,9 +17,9 @@ namespace MyGraphics.Diagrams.ActivityDiagram
         public override void draw(Common.CommonGraphics g)
         {
             g.DrawEllipse(new Point(Info.p1.X, Info.p1.Y), Info.width, Info.height); // ve ellip
-            SolidBrush sb = new SolidBrush(Color.Black);
-
-            // truyen chuoi vo
+            SolidBrush color = new SolidBrush(Color.Black);
+            Font f = new Font("Arial", 20);
+            g.DrawString("End", f, color, new Point(Info.p1.X + Info.height / 4, Info.p1.Y + Info.height / 4));
         }
     }
 }
