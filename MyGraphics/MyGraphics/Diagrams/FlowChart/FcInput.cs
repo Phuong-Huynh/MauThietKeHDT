@@ -16,15 +16,10 @@ namespace MyGraphics.Diagrams.ActivityDiagram
 
         public override void draw(Common.CommonGraphics g)
         {
-            g.DrawEllipse(new Point(Info.p1.X, Info.p1.Y),Info.width,Info.height); // ve ellip
-
-            
-            // truyen chuoi vo
-           // Font f = new Font("Arial", 30);
-          //  SolidBrush s = new SolidBrush(Color.Black);
-         //   g.DrawString("Start", f, s, new Point(Info.p1.X, Info.p1.Y));
-
-
+            g.DrawLine(Info.p1, new Point(Info.p1.X + Info.height / 2, Info.p1.Y - Info.height));
+            g.DrawLine(Info.p1, new Point(Info.p1.X + Info.width, Info.p1.Y));
+            g.DrawLine(new Point(Info.p1.X + Info.height / 2, Info.p1.Y - Info.height), new Point(Info.p1.X + Info.height / 2 + Info.width, Info.p1.Y - Info.height));
+            g.DrawLine(new Point(Info.p1.X + Info.height / 2 + Info.width, Info.p1.Y - Info.height), new Point(Info.p1.X + Info.width, Info.p1.Y));
         }
     }
 }

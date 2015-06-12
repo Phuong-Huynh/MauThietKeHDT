@@ -120,33 +120,54 @@ namespace MyGraphics
 
 
             //////////////* Flow Chart *///////////
+            // FcStart
+            FcStart fcstart = new FcStart();
+            fcstart.Info = new ShapeInfo
+            {
+                p1 = new Point(50,250),
+                height = 60,
+                width = 100,
+            };
+            fcstart.draw(graphics);
             // FcInput
             FcInput fcinput = new FcInput();
             fcinput.Info = new ShapeInfo
             {
-                p1 = new Point(50,300),
-                height = 50,
-                width = 100,
+                
+                p1 = new Point(50, 400),
+                height = 60,
+                width = 80,
+                
             };
             fcinput.draw(graphics);
             // FcCondition 
             FcCondition fccon = new FcCondition();
             fccon.Info = new ShapeInfo
             {
-                p1 = new Point(300, 300),
-                width = 100,
-                height = 70,
+                p1 = new Point(300, 250),
+                width = 80,
+                height = 60,
             };
             fccon.draw(graphics);
             // FcProcess
             FcProcess fcpro = new FcProcess();
             fcpro.Info = new ShapeInfo
             {
-                p1 = new Point(350, 300),
-                width = 100,
-                height = 50,
+                p1 = new Point(350, 250),
+                width = 80,
+                height = 60,
             };
+ 
             fcpro.draw(graphics);
+            // FcOutput
+            FcOutput fcout = new FcOutput();
+            fcout.Info = new ShapeInfo
+            {
+                p1 = new Point(450, 250),
+                width = 80,
+                height = 60,
+            };
+            fcout.draw(graphics);
             // FcEnd
             
         }
