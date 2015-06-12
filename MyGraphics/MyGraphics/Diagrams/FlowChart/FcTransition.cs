@@ -17,8 +17,17 @@ namespace MyGraphics.Diagrams.ActivityDiagram
         public override void draw(Common.CommonGraphics g)
         {
             g.DrawLine(Info.p1, Info.p2);
-            g.DrawLine(Info.p2,new Point(Info.p2.X - 5, Info.p2.Y - 5));
-            g.DrawLine(Info.p2,new Point(Info.p2.X - 5, Info.p2.Y + 5));
+            if (Info.p1.X == Info.p2.X)
+            {
+                g.DrawLine(Info.p2, new Point(Info.p2.X - 5, Info.p2.Y - 5));
+                g.DrawLine(Info.p2, new Point(Info.p2.X + 5, Info.p2.Y - 5));
+            }
+            else
+            {
+                g.DrawLine(Info.p2, new Point(Info.p2.X - 5, Info.p2.Y - 5));
+                g.DrawLine(Info.p2, new Point(Info.p2.X - 5, Info.p2.Y + 5));
+            }
+            
         }
     }
 }

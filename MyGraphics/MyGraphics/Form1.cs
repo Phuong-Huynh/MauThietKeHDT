@@ -50,6 +50,7 @@ namespace MyGraphics
             shapeType = ShapeTypes.LINE;
             graphicsType = GraphicsTypes.GDI;
             graphics = gdiGraphics;
+            //graphics = cairogGraphics;
 
             /////------TEST ------ActivityDiagram----------/////
             //acstart
@@ -94,6 +95,7 @@ namespace MyGraphics
             AcTransition actransition = new AcTransition();
             actransition.Info = new ShapeInfo
             {
+               
                 p1 = new Point(50, 150),
                 p2 = new Point(100, 200),
             };
@@ -172,8 +174,10 @@ namespace MyGraphics
             FcTransition fctran = new FcTransition();
             fctran.Info = new ShapeInfo
             {
-                p1 = new Point(180, 370),
-                p2 = new Point(250, 370),
+                //p1 = new Point(180, 370),
+                //p2 = new Point(250, 370),
+                p1 = new Point(180, 300),
+                p2 = new Point(180, 370),
             };
             fctran.draw(graphics);
             // FcEnd
