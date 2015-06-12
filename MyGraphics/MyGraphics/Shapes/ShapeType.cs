@@ -12,6 +12,7 @@ namespace MyGraphics.Shapes
         RECT ,
         ELLIPSE,
         LOZEN,
+
     };
 
     public enum GraphicsTypes

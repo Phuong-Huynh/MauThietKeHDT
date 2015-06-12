@@ -82,5 +82,9 @@ namespace MyGraphics.Common
         {
             lib.DrawArc(pen, p1.X, p1.Y, width, height, startAngle, sweepAngle);
         }
+        public void DrawString(string str,Font font,Brush brush, Point point  )
+        {
+            lib.DrawString(str, font, brush, point);
+        }
     }
 }

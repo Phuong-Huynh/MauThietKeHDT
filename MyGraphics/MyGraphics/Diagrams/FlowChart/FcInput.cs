@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 
 namespace MyGraphics.Diagrams.ActivityDiagram
 {
@@ -15,7 +16,10 @@ namespace MyGraphics.Diagrams.ActivityDiagram
 
         public override void draw(Common.CommonGraphics g)
         {
-            throw new NotImplementedException();
+            g.DrawLine(Info.p1, new Point(Info.p1.X + Info.height / 2, Info.p1.Y - Info.height));
+            g.DrawLine(Info.p1, new Point(Info.p1.X + Info.width, Info.p1.Y));
+            g.DrawLine(new Point(Info.p1.X + Info.height / 2, Info.p1.Y - Info.height), new Point(Info.p1.X + Info.height / 2 + Info.width, Info.p1.Y - Info.height));
+            g.DrawLine(new Point(Info.p1.X + Info.height / 2 + Info.width, Info.p1.Y - Info.height), new Point(Info.p1.X + Info.width, Info.p1.Y));
         }
     }
 }
